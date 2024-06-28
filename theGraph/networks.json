@@ -1,0 +1,10 @@
+{
+  "celo-alfajores": {
+    "CreatorSBT": {
+      "address": "0x2dB895528dDD55211F9Ae88331BE941cf1095569"
+    },
+    "MusicNFT": {
+      "address": "0x8b8773e26826Da2449FB6A70c764917c2482EEF6"
+    }
+  }
+}

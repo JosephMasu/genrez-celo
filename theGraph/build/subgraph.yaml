@@ -1,0 +1,55 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+features:
+  - fullTextSearch
+dataSources:
+  - kind: ethereum
+    name: CreatorSBT
+    network: celo-alfajores
+    source:
+      address: "0x6Fa33f4415f42BE90255FF5Bc4F85e8fad96ddce"
+      abi: CreatorSBT
+      startBlock: 12265109
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ProfileBurnt
+        - ProfileMinted
+        - ProfileUpdated
+      abis:
+        - name: CreatorSBT
+          file: CreatorSBT\abis\CreatorSBT.json
+      eventHandlers:
+        - event: ProfileBurnt(indexed uint256)
+          handler: handleProfileBurnt
+        - event: ProfileMinted(indexed uint256,indexed address,string,string)
+          handler: handleProfileMinted
+        - event: ProfileUpdated(indexed uint256,string,string)
+          handler: handleProfileUpdated
+      file: CreatorSBT\CreatorSBT.wasm
+  - kind: ethereum
+    name: MusicNFT
+    network: celo-alfajores
+    source:
+      address: "0x45Faf19f61281E68e03c682a6d78e1CbE0bc38D5"
+      abi: MusicNFT
+      startBlock: 12265109
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - MusicBurnt
+        - MusicMinted
+      abis:
+        - name: MusicNFT
+          file: MusicNFT\abis\MusicNFT.json
+      eventHandlers:
+        - event: MusicBurnt(indexed uint256)
+          handler: handleMusicBurnt
+        - event: MusicMinted(indexed uint256,indexed address,string,string,string,string)
+          handler: handleMusicMinted
+      file: MusicNFT\MusicNFT.wasm

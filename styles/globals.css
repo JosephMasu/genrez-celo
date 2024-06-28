@@ -1,0 +1,26 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import '@celo/react-celo/lib/styles.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "react-toastify/dist/ReactToastify.min.css";
+
+body{
+  background-color: #212529;
+  color: whitesmoke;
+  overflow-y: scroll !important;
+}
+
+.nft-card-overlay{
+  opacity: 0;
+}
+.nft-card-overlay:hover{
+  background-color: #181818e6;
+  opacity: 1;
+}
+.nft-card-overlay span {
+  font-size: 14px;
+}
+.nft-card-overlay .add-to-playlist{
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}

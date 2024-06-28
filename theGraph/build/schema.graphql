@@ -1,0 +1,31 @@
+type _Schema_
+  @fulltext(
+    name: "musicSearch"
+    language: en
+    algorithm: rank
+    include: [{ entity: "MusicNFT", fields: [{ name: "title" }, { name: "artist" }, {name: "feature"} ] }]
+  )
+  @fulltext(
+    name: "creatorSearch"
+    language: en
+    algorithm: rank
+    include: [{ entity: "CreatorSBT", fields: [{ name: "name" } ] }]
+  )
+
+type MusicNFT @entity {
+  id: ID!
+  tokenId: BigInt!
+  owner: Bytes!
+  title: String!
+  artist: String
+  feature: String
+  uri: String!
+}
+
+type CreatorSBT @entity {
+  id: ID!
+  tokenId: BigInt
+  owner: Bytes
+  name: String
+  uri: String
+}
